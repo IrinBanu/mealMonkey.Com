@@ -1,21 +1,26 @@
 <!-- <p>login works!</p> -->
 <br/><br/>
+
 <div class="container-fluid">
-    <form (ngSubmit)="onSubmit()">
+    <form (ngSubmit)="onSubmit()" class="needs-validation was-validated" >
         <div>
-        <label for="email">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="email" name="email" id="email" placeholder="Enter your email id" [(ngModel)]="email" required autofocus>
-    </div><br/><br/>
+        <label for="email" class="form-label">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="email" name="email" id="email" placeholder="Enter your email id" [(ngModel)]="email" required autofocus class="form-control">
+    </div><br/>
 
     <div>
-        <label for="password">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;
-        <input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="password" required>
+        <label for="password" class="form-label">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;
+        <input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="password" required class="form-control"><br/>
+        <a routerLink="/profile-edit">Forget Password</a>
     </div><br/><br/>
 
     <div style="text-align: center;">
        <button type="submit" class="btn btn-outline-success">Submit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <a routerLink="/register" class="register">Register</a>  
     </div> 
+    <div>
+        
+    </div>
     </form>
 
 </div>

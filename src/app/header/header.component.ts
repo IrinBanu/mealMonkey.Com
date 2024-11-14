@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-header',
@@ -25,13 +26,18 @@ export class HeaderComponent implements OnInit{
   
   isLoggedIn=false;
 
-  constructor(){
+  constructor(private toastr:ToastrService){
     console.log('Header Component Called');
   }
   ngOnInit(): void {
     //fetch from localstorage whether user is loggedin
-    //this.isLoggedIn=localStorage.getItem("Logged-In-User")==true;
+    this.isLoggedIn=localStorage.getItem("Logged-In-User")=="true";
   }
 
-
+logout(){
+  localStorage.clear();
+  alert('logged out');
+  this.toastr.warning('Logged out');
+  window.location.href="/home"
+}
 }

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +15,7 @@ import { RouterLink } from '@angular/router';
     width:40%;
     box-shadow:2px 2px 2px yellow;
     padding:75px;
-    height:350px;
+    height:400px;
     border-radius:8px 8px 8px 8px ;
  }
   
@@ -34,18 +35,41 @@ export class LoginComponent {
   email!:string;
   password!:string;
   
-  constructor(){
-
+  constructor(private toastr:ToastrService){
+console.log('Login Component Called');
   }
 
   onSubmit(){
-  alert(this.email);
+  // alert(this.email);
 
   console.log('Form submitted');
   console.log('Email:',this.email, 'Password:',this.password);
-  localStorage.setItem("Email:",this.email);
-  window.location.href="/home";
+  if(this.email=="admin123@gmail.com" && this.password=="password123"){
+ 
+  const usersStr=localStorage.getItem('Users');
+
+     let users=[];
+     if(usersStr){
+       users=JSON.parse(usersStr);
+     }else{
+       users=[];
+    }
+
+    const userExists=users.find((obj:any)=>obj.email==this.email&& obj.password==this.password);
+
+    if(userExists!=null){
+      alert("Loggedin Successfully");
+      this.toastr.success("Loggedin successfully");
+localStorage.setItem("Logged-In-User", "true");
+localStorage.setItem("EMAIL", this.email);
+}else{
+    alert("Invalid login credentials");
+   //this.toastr.warning("Invalid Login Credentials");
+    
+  }
+
 }
 
-
 }
+}
+

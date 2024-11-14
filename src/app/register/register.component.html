@@ -1,30 +1,53 @@
 <!-- <p>register works!</p> -->
-<br/><br/>
+<br/>
 
 <div class="container-fluid">
-    <form >
+    <form (ngSubmit)="onSubmit()" [formGroup]="regForm" class="needs-validation was-validated" novalidate >
         <div>
-            <label for="name">Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="text" name="name" id="name" placeholder="Enter your  name" autofocus>
+            <label for="name" class="form-label">Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="text" name="name" id="name" placeholder="Enter your  name" formControlName="name" required autofocus class="form-control is-invalid">
+            <small *ngIf="(name.dirty||name.touched)&&name.errors?.['required']" class="invalid-feedback">Enter valid name</small>
         </div><br/>
 
         <div>
-            <label for="email">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="email" name="email" id="email" placeholder="Email ID">
-        </div><br/>
+            <label for="email" class="form-label">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="email" name="email" id="email" placeholder="Email ID" formControlName="email" required class="form-control is-invalid">
+            <div>
+            <small *ngIf="(email.dirty||email.touched)&& email.errors?.['required']" class="invalid-feedback">Please enter email Id</small>
+            <small *ngIf="email.errors?.['email']" class="invalid-feedback">Invalid email Id</small>
+            </div>
+            </div><br/>
 
         <div>
-            <label for="mobilenumber">Mobile Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="number" name="mobilenumber" id="mobilenumber" placeholder="Mobile Number">
-        </div><br/>
-        <div>
-            <label for="password">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="password" name="password" id="password" placeholder="Password">
+            <label for="mobilenumber" class="form-label">Mobile Number</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="number" name="mobilenumber" id="mobilenumber" placeholder="Mobile Number" formControlName="mobileNumber" required class="form-control is-invalid">
+            <small *ngIf="(mobileNumber.dirty||mobileNumber.touched)&&mobileNumber.errors?.['required']" class="invalid-feedback">
+                Please enter valid mobile number. </small>
+            </div><br/>
+        
+            <div>
+            <label for="password" class="form-label">Password</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="password" name="password" id="password" placeholder="Password" formControlName="password" required class="form-control is-invalid">
+           <small *ngIf="password.dirty&& password.errors?.['required']" class="invalid-feedback" >
+            Password is required</small>
+                        
+            <small *ngIf="password.errors?.['minLength']" class="invalid-feedback">
+                Password should have minimum 8 characters
+            </small>
+            
+            <small *ngIf="password.errors?.['maxLength']" class="invalid-feedback">
+                Password should not exceed 12 characters
+            </small>
+           
+            
         </div><br/><br/>
 
         <div style="text-align: center;">
-            <button type="submit" class="btn btn-outline-success">Submit</button>
+            <button type="submit"[disabled]="!regForm.valid" class="btn btn-outline-success">Submit</button>
+            {{regForm.invalid}}-{{regForm.valid}}
         </div>
     </form>
 
 </div>
+
+
