@@ -22,22 +22,24 @@ margin-right:5px;}
   }
   `
 })
-export class HeaderComponent implements OnInit{
+export class HeaderComponent implements OnInit {
   
-  isLoggedIn=false;
+ isLoggedIn=false;
 
-  constructor(private toastr:ToastrService){
-    console.log('Header Component Called');
-  }
-  ngOnInit(): void {
-    //fetch from localstorage whether user is loggedin
-    this.isLoggedIn=localStorage.getItem("Logged-In-User")=="true";
-  }
+ constructor() {
+  console.log('Header Component');
+  //fetch from localstorage whether user is loggedin
+ }
+ ngOnInit(): void {
+  this.isLoggedIn=localStorage.getItem("Logged-In-User")=='true';
+}
 
 logout(){
+  //localStorage.removeItem("Logged-In-User");
   localStorage.clear();
-  alert('logged out');
-  this.toastr.warning('Logged out');
-  window.location.href="/home"
+  alert("successfully loggedout");
+window.location.href="/restaurants"
 }
+
+
 }

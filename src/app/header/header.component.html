@@ -24,28 +24,23 @@
                 </ul>
 
  <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-  <li class="nav-item" >
-    <!-- *ngIf="!isLoggedIn" -->
-  <a class="nav-link" routerLink="/login" 
+  <li class="nav-item"  *ngIf="!isLoggedIn">
+ <a class="nav-link" routerLink="/login" 
   style="color: green; font-size:20px;">Login</a>
   </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
- <li class="nav-item" >
-    <!-- *ngIf="isLoggedIn" -->
- <a class="nav-link" routerLink="/cart"
+ <li class="nav-item" *ngIf="isLoggedIn" >
+    <a class="nav-link" routerLink="/cart"
  style="color: green; font-size:20px;">Cart</a>
  </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <li class="nav-item" >
-                        <!-- *ngIf="isLoggedIn" -->
-                        <a class="nav-link" routerLink="/profile-edit"
+                    <li class="nav-item" *ngIf="isLoggedIn" >
+                            <a class="nav-link" routerLink="/profile-edit"
                          style="color: green; font-size:20px;">Profile</a>
                     </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-                    <li class="nav-item" >
-                        <!-- *ngIf="isLoggedIn" -->
-                        <a class="nav-link" (click)="logout()"
-                         style="color: green; font-size:20px;">Logout</a>
+                    <li class="nav-item" *ngIf="isLoggedIn">
+                        <a class="nav-link" (click)="logout()" style="color: green; font-size:20px;">Logout</a>
                     </li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
                 </ul>
