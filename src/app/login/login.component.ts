@@ -1,13 +1,12 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterLink } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [RouterLink, CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './login.component.html',
   styles: `
   .container-fluid{
@@ -40,36 +39,43 @@ console.log('Login Component Called');
   }
 
   onSubmit(){
-  // alert(this.email);
-
   console.log('Form submitted');
-  console.log('Email:',this.email, 'Password:',this.password);
+  console.log('Email:',this.email, 'Password:'+ this.password);
+  
+  //if admin123@gmail.com, pass123, valid login
   if(this.email=="admin123@gmail.com" && this.password=="password123"){
- 
-  const usersStr=localStorage.getItem('Users');
-
-     let users=[];
-     if(usersStr){
-       users=JSON.parse(usersStr);
-     }else{
-       users=[];
-    }
-
-    const userExists=users.find((obj:any)=>obj.email==this.email&& obj.password==this.password);
-
-    if(userExists!=null){
-      alert("Loggedin Successfully");
-      this.toastr.success("Loggedin successfully");
-localStorage.setItem("Logged-In-User", "true");
-localStorage.setItem("EMAIL", this.email);
-}else{
-    alert("Invalid login credentials");
-   //this.toastr.warning("Invalid Login Credentials");
-    
+ alert("Successfully Loggedin");
+ localStorage.setItem("Logged-In-User", "true");
+ localStorage.setItem("Enmail" , this.email);
+ //redirection
+ window.location.href="/restaurants"
   }
+ else{
+alert("invalid login credentials");
+ }
+//   const usersStr=localStorage.getItem('Users');
+
+//      let users=[];
+//      if(usersStr){
+//        users=JSON.parse(usersStr);
+//      }else{
+//        users=[];
+//     }
+
+//     const userExists=users.find((obj:any)=>obj.email==this.email&& obj.password==this.password);
+
+//     if(userExists!=null){
+//       alert("Loggedin Successfully");
+//       this.toastr.success("Loggedin successfully");
+// localStorage.setItem("Logged-In-User", "true");
+// localStorage.setItem("EMAIL", this.email);
+// }else{
+//     alert("Invalid login credentials");
+//    //this.toastr.warning("Invalid Login Credentials");
+    
+//   }
 
 }
 
-}
 }
 

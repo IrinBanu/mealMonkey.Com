@@ -50,7 +50,7 @@ restaurants =[
     imgUrl:"https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/3c48bdee-27aa-446c-8aae-31b580fc87ad-1568101924173-store_image.jpg" ,
     restaurantName:"Food Court - Coffee House",
     area:"Mount Road",
-    distance:"3.2km"
+    distance:"3.2km",
   },
   {
     imgUrl:"https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/dXpJT1lIbGFva0hObFlKWTdlTzUwZz09-1572941212590-store_image.jpg" ,

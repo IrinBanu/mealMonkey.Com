@@ -1,6 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -8,21 +8,30 @@ import { RouterLink } from '@angular/router';
   imports: [RouterLink, CommonModule],
   templateUrl: './menu.component.html',
   styles: `
+  // .background{
+  //   background-image:url(https://img.freepik.com/free-photo/top-view-food-frame-with-salad-copy-space_23-2148247872.jpg?semt=ais_hybrid);
+  //   background-size:cover;
+  //   background-size:;
+  // }
     .row{
     margin:25px;
+    
       }
   .container{
     display:flex;
-    border:2px solid lightyellow;
+   // border:2px solid lightyellow;
     padding:2px;
-    border-radius:1px 10px;
-    width:525px;
+    //border-radius:1px 10px;
     margin-left:5px;
-    cursor:pointer;}
+    cursor:pointer;
+  border-bottom:1px dotted lightgray;
+  width:100%;
+  
+}
 
-  .container:hover{
-    box-shadow: 5px 5px 5px 5px lightgray;
-  }
+  // .container:hover{
+  //   box-shadow: 5px 5px 5px 5px lightgray;
+  // }
   
   img{
     border-radius:10px;
@@ -46,12 +55,25 @@ li{
 })
 export class MenuComponent {
 
+  restaurantName!:string;
+  restaurant!:any;
+constructor(private route:ActivatedRoute){
+this.restaurantName=this.route.snapshot.params["id"];
+
+this.restaurant=this.restaurants.find(obj=>obj.restaurantName==this.restaurantName);
+}
+
   restaurants =[
     {
       imgUrl:"https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/3c48bdee-27aa-446c-8aae-31b580fc87ad-1568101924173-store_image.jpg" ,
       restaurantName:"Food Court - Coffee House",
       area:"Mount Road",
-      distance:"3.2km"
+      distance:"3.2km",
+      coffee:"Cofee",
+      boost:"Boost",
+      horlicks:"horlicks",
+     eveSnacks:"Bajji, Bonda, Veg.Puff, EggPuff, Burger",
+     miniTiffin:"Idly, Dosa"
     },
     {
       imgUrl:"https://ik.imagekit.io/dunzo/dunzo-catalog-prod/tr:w-220,h-220,cm-pad_resize_store_thumbnail/stores/dXpJT1lIbGFva0hObFlKWTdlTzUwZz09-1572941212590-store_image.jpg" ,

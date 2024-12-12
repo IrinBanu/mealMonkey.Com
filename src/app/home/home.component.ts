@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { RestaurantsComponent } from "../restaurants/restaurants.component";
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-home',

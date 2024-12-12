@@ -1,13 +1,15 @@
  <!-- <p>restaurants works!</p> -->
 <br />
+
+<h3>List of Restaurants</h3>
 <div class="container-fluid">
-    <nav aria-label="breadcrumb" style="font-family: 'Courier New', Courier, monospace;">
-        <ol class="breadcrumb">
+    <nav aria-label="breadcrumb" >
+        <ol class="breadcrumb" style="font-family:cursive; text-decoration: none;">
           <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
           <li class="breadcrumb-item"><a routerLink="/cart">Cart</a></li>
           <li class="breadcrumb-item active" aria-current="page">Restaurants</li>
         </ol>
-      </nav><br/><br/>
+      </nav>
   
 
     <div class="row">
@@ -20,7 +22,7 @@
               <li>{{restaurant.restaurantName}}</li>
               <li>{{restaurant.area}}</li>
               <li>{{restaurant.distance}}</li>
-            <a routerLink="{{restaurant.restaurantName}}">See more...</a>
+            <a routerLink="{{restaurant.restaurantName}}" class="btn btn-warning">See more...</a>
             </ul>
               
         </div>

@@ -2,7 +2,25 @@
 <br/><br/>
 
 <div class="container-fluid">
-    <form (ngSubmit)="onSubmit()" class="needs-validation was-validated" >
+
+<form (ngSubmit)="onSubmit()">
+    <div>
+        <label for="email">Email ID</label>
+        <input type="email" name="email" id="email" placeholder="Enter Your Email Id"[(ngModel)]="email" required autofocus>
+    </div>
+
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" placeholder="Possword" [(ngModel)]="password" required>
+    </div>
+
+    <div>
+        <button type="submit">Submit</button>
+    </div>
+</form>
+
+</div>
+    <!-- <form (ngSubmit)="onSubmit()" class="needs-validation was-validated" >
         <div>
         <label for="email" class="form-label">Email</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <input type="email" name="email" id="email" placeholder="Enter your email id" [(ngModel)]="email" required autofocus class="form-control">
@@ -21,6 +39,5 @@
     <div>
         
     </div>
-    </form>
+    </form> -->
 
-</div>

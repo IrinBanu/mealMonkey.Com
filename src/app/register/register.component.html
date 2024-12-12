@@ -2,6 +2,31 @@
 <br/>
 
 <div class="container-fluid">
+
+<form >
+<div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" placeholder="Enter your name" required autofocus>
+</div>
+
+<div>
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" placeholder="Enter your email Id" required>
+</div>
+
+<div>
+    <label for="number">Mobile Number</label>
+    <input type="number" name="mobilenumber" id="mobilenumber" placeholder="Enter your mobile number" required>
+</div>
+
+
+
+</form>
+
+</div>
+
+
+<!-- <div class="container-fluid">
     <form (ngSubmit)="onSubmit()" [formGroup]="regForm" class="needs-validation was-validated" novalidate >
         <div>
             <label for="name" class="form-label">Name</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -42,12 +67,12 @@
             
         </div><br/><br/>
 
-        <div style="text-align: center;">
-            <button type="submit"[disabled]="!regForm.valid" class="btn btn-outline-success">Submit</button>
+        <div style="text-align: center;"> -->
+            <!-- <button type="submit"[disabled]="!regForm.valid" class="btn btn-outline-success">Submit</button>
             {{regForm.invalid}}-{{regForm.valid}}
         </div>
-    </form>
+    </form> -->
 
-</div>
+
 
 

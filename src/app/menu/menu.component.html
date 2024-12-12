@@ -1,6 +1,8 @@
 <!--<p>menu works!</p> -->
 <br/>
+<div class="background">
 <div class="container-fluid">
+  <h2>{{restaurantName}}</h2>
     <nav aria-label="breadcrumb" style="font-family: 'Courier New', Courier, monospace;">
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a routerLink="/home">Home</a></li>
@@ -8,25 +10,32 @@
           <li class="breadcrumb-item"><a routerLink="/restaurants">Restaurants</a></li>
           <li class="breadcrumb-item active" aria-current="page">Menu</li>
         </ol>
-      </nav><br/><br/>
-
-
+      </nav>
+     
       <div class="row">
-        @for (restaurant of restaurants; track restaurant) {
+        @if (restaurant) {
           <div class="col-6">
             <div class="container">
                 <img src={{restaurant.imgUrl}} >
                 <div class="float">
                 <ul >
-                <li>{{restaurant.restaurantName}}</li>
-                <li>{{restaurant.area}}</li>
-                <li>{{restaurant.distance}}</li>
-                
-            </ul>
+                <a style="font-size:xx-large; color:darkolivegreen;">{{restaurant.restaurantName}}</a>
+                 </ul>
           </div>
-        </div>
-  </div>
+          </div>
+  </div><br/>
+
+  <h3 style="color: darkolivegreen; text-align: center;">Menu</h3>
+            <div class="float">
+            <ul >
+
+              
+            <li>{{restaurant.eveSnacks}}</li>
+            <li>{{restaurant.coffee}}</li>
+            <li>{{restaurant.miniTiffin}}</li>
+             </ul>
+      </div>
         }
           </div> 
   
-
+        </div>
